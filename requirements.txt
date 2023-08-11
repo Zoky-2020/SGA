@@ -1,0 +1,6 @@
+ftfy==6.1.1
+ruamel_yaml==0.15.80
+timm==0.6.13
+torch==2.0.0
+torchvision==0.15.0
+transformers==4.28.1
