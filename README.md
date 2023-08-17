@@ -1,7 +1,7 @@
 # Set-level Guidance Attack
 
 The official repository for Set-level Guidance Attack (SGA).  
-ICCV 2023 Paper: *Set-level Guidance Attack: Boosting Adversarial Transferability of Vision-Language Pre-training Models* (https://arxiv.org/abs/2307.14061)
+**ICCV 2023 Oral** Paper: *Set-level Guidance Attack: Boosting Adversarial Transferability of Vision-Language Pre-training Models* (https://arxiv.org/abs/2307.14061)
 
 Please feel free to contact wangzq_2021@outlook.com if you have any question.
 <img src='./imgs/sga.png' width=90%>
