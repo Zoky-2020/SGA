@@ -24,7 +24,7 @@ class SGAttacker():
 
 
         with torch.no_grad():
-            txts_input = self.txt_attacker.tokenizer(adv_txts, padding='max_length', truncation=True, max_length=30, return_tensors="pt").to(device)
+            txts_input = self.txt_attacker.tokenizer(adv_txts, padding='max_length', truncation=True, max_length=max_length, return_tensors="pt").to(device)
             txts_output = self.model.inference_text(txts_input)
             txt_supervisions = txts_output['text_feat']
         adv_imgs = self.img_attacker.txt_guided_attack(self.model, imgs, txt2img, device, 
