@@ -18,12 +18,37 @@ Download the datasets, [Flickr30k](https://shannon.cs.illinois.edu/DenotationGra
 The checkpoints of the fine-tuned VLP models is accessible in [ALBEF](https://github.com/salesforce/ALBEF), [TCL](https://github.com/uta-smile/TCL), [CLIP](https://huggingface.co/openai/clip-vit-base-patch16).
 
 ### 3. Attack evaluation
+From ALBEF to TCL on the Flickr30k dataset:
+```python
+python eval_albef2tcl_flickr.py --config ./configs/Retrieval_flickr.yaml \
+--source_model ALBEF  --source_ckpt ./checkpoint/albef_retrieval_flickr.pth \
+--target_model TCL --target_ckpt ./checkpoint/tcl_retrieval_flickr.pth \
+--original_rank_index ./std_eval_idx/flickr30k/ --scales 0.5,0.75,1.25,1.5
+```
+
+From ALBEF to CLIP<sub>ViT</sub> on the Flickr30k dataset:
 ```python
 python eval_albef2clip-vit_flickr.py --config ./configs/Retrieval_flickr.yaml \
 --source_model ALBEF  --source_ckpt ./checkpoint/albef_retrieval_flickr.pth \
 --target_model ViT-B/16 --original_rank_index ./std_eval_idx/flickr30k/ \
 --scales 0.5,0.75,1.25,1.5
 ```
+
+From CLIP<sub>ViT</sub> to ALBEF on the Flickr30k dataset:
+```python
+python eval_clip-vit2albef_flickr.py --config ./configs/Retrieval_flickr.yaml \
+--source_model ViT-B/16  --target_model ALBEF \
+--target_ckpt ./checkpoint/albef_retrieval_flickr.pth \
+--original_rank_index ./std_eval_idx/flickr30k/ --scales 0.5,0.75,1.25,1.5
+```
+
+From CLIP<sub>ViT</sub> to CLIP<sub>CNN</sub> on the Flickr30k dataset:
+```python
+python eval_clip-vit2clip-cnn_flickr.py --config ./configs/Retrieval_flickr.yaml \
+--source_model ViT-B/16  --target_model RN101 \
+--original_rank_index ./std_eval_idx/flickr30k/ --scales 0.5,0.75,1.25,1.5
+```
+
 
 ## Transferability Evaluation
 Existing adversarial attacks for VLP models cannot generate highly transferable adversarial examples.  
