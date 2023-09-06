@@ -99,11 +99,10 @@ def retrieval_eval(model, ref_model, t_model, t_ref_model, t_test_transform, dat
             
     
     s_sims_matrix = s_image_feats @ s_text_feats.t()           
-                
-    t_score_matrix_i2t, t_score_matrix_t2i = t_image_feats @ t_text_feats.t()
+    t_sims_matrix = t_image_feats @ t_text_feats.t()
 
     return s_sims_matrix.cpu().numpy(), s_sims_matrix.t().cpu().numpy(), \
-        t_score_matrix_i2t.cpu().numpy(), t_score_matrix_t2i.cpu().numpy(),
+        t_sims_matrix.cpu().numpy(), t_sims_matrix.t().cpu().numpy(),
         
 
 @torch.no_grad()
